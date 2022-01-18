@@ -1,0 +1,67 @@
+.App {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+hr {
+  width: 80%;
+  background-color: #ccc;
+}
+
+.select-box {
+  width: 80%;
+  display: flex;
+  margin: 0.5rem 0 0.5rem 0;
+}
+
+#cities {
+  margin-left: .5rem;
+}
+
+.btn-group {
+  width: 80%;
+  display: flex;
+  justify-content: flex-start;
+  margin: 0.5rem;
+}
+
+
+button {
+  height: 2.1rem;
+  color: black;
+  background-color: lightgrey;
+  padding: 0 .7rem 0 .7rem;
+  margin-right: auto;
+  border-radius: .2rem;
+  border: none;
+  box-shadow: 1px 1px;
+}
+
+button:hover {
+  color: white;
+  background-color: #0275d8;
+}
+
+table {
+  display: flex;
+  width: 80%;
+  border-collapse: collapse;
+}
+
+table:nth-child(odd) {
+  background-color: #EEEEEE;
+}
+
+tr {
+  width: 90%;
+  display: flex;
+  justify-content: space-evenly;
+}
+
+th {
+ padding: .5rem auto;
+ margin-right: auto;
+ padding: .5rem 0 .5rem 0.5rem;
+}
