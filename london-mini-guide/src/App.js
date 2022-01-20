@@ -15,7 +15,7 @@ function App() {
   console.log(category);
 
   const getCity =(e)=> {
-    console.log(e.target.value);
+    return e.target.value;
   }
 
   return (
@@ -33,7 +33,7 @@ function App() {
       <hr />
       <ButtonContainer  getCategory={getCategory}/>
       <hr />
-      <Table/>
+      <Table getCity={getCity}/>
     </div>
   );
 }

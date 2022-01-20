@@ -54,26 +54,42 @@ table {
   flex-direction: column;
   width: 80%;
   border-collapse: collapse;
+  table-layout: fixed;
 }
 
-table:nth-child(odd) {
+/* table:nth-child(odd) {
   background-color: #eeeeee;
-}
+} */
 
 tr {
   width: 100%;
   display: flex;
-  justify-content: space-evenly;
-} 
+  justify-content: flex-start;
+}
 
-th {
-  padding: 0.5rem auto;
-  margin-right: auto;
+tr:nth-child(even) {
+  background-color: #eeeeee;
+}
+
+th, td {
   padding: 0.5rem 0 0.5rem 0.5rem;
+  text-align: start;
+}
+
+th.number, td.number {
+  width: 5%;
+}
+
+th.name, td.name {
+  width: 25%;
+}
+
+th.phone, th.address, th.web, 
+td.phone, td.address, td.web {
+  width: 20%;
 }
 
 td {
-  
-  margin-right: auto;
-  padding: 0.5rem 0 0.5rem 0.5rem;
+  max-height: auto;
+  word-wrap: break-word;
 }
