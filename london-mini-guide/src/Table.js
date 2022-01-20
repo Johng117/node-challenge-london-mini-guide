@@ -1,8 +1,8 @@
 import React from "react";
-
+import Harrow from "./Harrow.json";
 const Table = () => {
 
-
+    console.log(Harrow.pharmacies.slice(0,10));
     
     return (
       <table>
@@ -13,9 +13,15 @@ const Table = () => {
           <th>Address</th>
           <th>Website</th>
         </tr>
-        <tr>
+        {Harrow.pharmacies.slice(0,10).map((entry, key)=> {
+          return <tr>
             <td></td>
-        </tr>
+            <td>{entry.name}</td>
+            <td>{entry.phone}</td>
+            <td>{entry.address}</td>
+            <td>{entry.website}</td>
+          </tr>;  
+        })}
       </table>
     );
 }

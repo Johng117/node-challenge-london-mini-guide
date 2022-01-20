@@ -1,14 +1,21 @@
 import "./App.css";
-import React from "react";
+import React, { useState } from "react";
 // import data from "./Harrow";
 // import data2 from "./Heathrow";
 // import data3 from "./Stratford";
-import Buttons from "./Buttons"
+import ButtonContainer from "./ButtonContainer"
 import Table from "./Table"
 function App() {
 
-  const buttonHandler=(e)=> {
-    console.log(e.target.value)
+  const [category, setCategory] = useState("")
+  
+  const getCategory=(value)=> {
+    setCategory(value);
+  }
+  console.log(category);
+
+  const getCity =(e)=> {
+    console.log(e.target.value);
   }
 
   return (
@@ -17,14 +24,14 @@ function App() {
       <hr />
       <div className="select-box">
         <label for="cities">choose a city: </label>
-        <select name="cities" id="cities">
+        <select name="cities" id="cities" onChange={getCity}>
           <option value="harrow">Harrow</option>
           <option value="heathrow">Heathrow</option>
           <option value="stratford">Stratford</option>
         </select>
       </div>
       <hr />
-      <Buttons buttonHandler={buttonHandler} />
+      <ButtonContainer  getCategory={getCategory}/>
       <hr />
       <Table/>
     </div>
