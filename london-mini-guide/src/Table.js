@@ -1,40 +1,32 @@
-import React, { useState } from "react";
-import Harrow from "./Harrow.json";
-import Heathrow from "./Heathrow.json";
-import Stratford from "./Stratford.json";
+import harrow from "./Harrow.json";
+import heathrow from "./Heathrow.json";
+import stratford from "./Stratford.json";
+import Row from "./TableRow";
 
 const Table = (props) => {
-  const [city, setCity]=useState(["harrow", "heathrow", "stratford"]);
-    console.log(Harrow.pharmacies.slice(0,10));
-    
-    setCity(props.getCity)
+  const cities = {
+    "harrow": harrow,
+    "heathrow": heathrow,
+    "stratford": stratford,
+  };
+  let entryNumber = 0;
+  // const categories = {};
 
-    let entryNumber=0;
+  return (
+    <table>
+      <tr>
+        <th className="number">#</th>
+        <th className="name">Name</th>
+        <th className="phone">Phone</th>
+        <th className="address">Address</th>
+        <th className="web">Website</th>
+      </tr>
+      {/* {cities[props.cityName].colleges.map((entry) => {
+        entryNumber++;
+        return <Row entry={entry} entryNumber={entryNumber} />;
+      })} */}
+    </table>
+  );
+};
 
-    return (
-      <table>
-        <tr>
-          <th className="number">#</th>
-          <th className="name">Name</th>
-          <th className="phone">Phone</th>
-          <th className="address">Address</th>
-          <th className="web">Website</th>
-        </tr>
-        {city.pharmacies.slice(0,10).map((entry)=> {
-            entryNumber++;
-          return (
-            <tr>
-              <td className="number">{entryNumber}</td>
-              <td className="name">{entry.name}</td>
-              <td className="phone">{entry.phone}</td>
-              <td className="address">{entry.address}</td>
-              <td className="web" >{entry.website}</td>
-            </tr>
-          ); 
-           
-        })}
-      </table>
-    );
-}
- 
 export default Table;

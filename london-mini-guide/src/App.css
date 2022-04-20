@@ -1,19 +1,13 @@
 .App {
-  text-align: center;
+  /* text-align: center; */
   display: flex;
   flex-direction: column;
-  align-items: center;
+  /* align-items: center; */
 }
 
 hr {
   width: 80%;
   background-color: #ccc;
-}
-
-.select-box {
-  width: 80%;
-  display: flex;
-  margin: 0.5rem 0 0.5rem 0;
 }
 
 #cities {
@@ -57,9 +51,6 @@ table {
   table-layout: fixed;
 }
 
-/* table:nth-child(odd) {
-  background-color: #eeeeee;
-} */
 
 tr {
   width: 100%;
