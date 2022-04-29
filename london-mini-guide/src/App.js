@@ -1,8 +1,9 @@
 import "./App.css";
 import React, { useState } from "react";
+import Header from "./Header";
 import ButtonContainer from "./ButtonContainer";
 import Table from "./Table";
-import 'bulma/css/bulma.css'
+import 'bulma/css/bulma.css';
 
 function App() {
   const [category, setCategory] = useState("");
@@ -17,13 +18,18 @@ function App() {
   };
 
   return (
-    <div className="App">
-      <h1 class="is-size-1 has-text-centered">London Mini Guide</h1>
-      <hr />
-      <div class="column is-half is-offset-one-quarter">
+    <div>
+
+    <div class="section has-centered">
+      <Header />
+      <hr class="mx-auto"></hr>
+    </div>
+
+      <div class="section">
         <div class="field has-add-ons">
-          <p class="control has-icons-left">
-            <span class="select is-primary is-rounded is-normal">
+          <div class="control has-icons-left">
+            
+            <div class="select is-primary is-normal">
               <select
                 name="cities"
                 id="cities"
@@ -37,16 +43,20 @@ function App() {
                 <option value="heathrow">Heathrow</option>
                 <option value="stratford">Stratford</option>
               </select>
-            </span>
+            </div>
+
             <span class="icon is-left">
               <i class="fas fa-city"></i>
             </span>
-          </p>
+
+          </div>
+          
           <div class="control">
             <button type="submit" class="button is-primary">
-              Choose
+              Select
             </button>
           </div>
+
         </div>
       </div>
       <hr />

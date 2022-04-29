@@ -1,13 +1,12 @@
 .App {
-  /* text-align: center; */
   display: flex;
-  flex-direction: column;
-  /* align-items: center; */
+  /* flex-direction: column; */
+  align-items: center;
 }
 
 hr {
   width: 80%;
-  background-color: #ccc;
+  margin: 0 auto;
 }
 
 #cities {
@@ -17,7 +16,6 @@ hr {
 .btn-group {
   width: 80%;
   display: flex;
-  /* justify-content: space-between; */
   margin: 0.5rem;
 }
 
@@ -51,7 +49,6 @@ table {
   table-layout: fixed;
 }
 
-
 tr {
   width: 100%;
   display: flex;
@@ -62,21 +59,28 @@ tr:nth-child(even) {
   background-color: #eeeeee;
 }
 
-th, td {
+th,
+td {
   padding: 0.5rem 0 0.5rem 0.5rem;
   text-align: start;
 }
 
-th.number, td.number {
+th.number,
+td.number {
   width: 5%;
 }
 
-th.name, td.name {
+th.name,
+td.name {
   width: 25%;
 }
 
-th.phone, th.address, th.web, 
-td.phone, td.address, td.web {
+th.phone,
+th.address,
+th.web,
+td.phone,
+td.address,
+td.web {
   width: 20%;
 }
 
