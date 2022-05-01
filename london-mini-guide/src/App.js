@@ -14,6 +14,7 @@ function App() {
   };
 
   const distValue = (e) => {
+    setCategory("")
     setDistrictName(e.target.value);
   };
   return (
@@ -28,14 +29,12 @@ function App() {
           <div class="control has-icons-left">
             <div class="select is-primary">
               <select
-                name="cities"
-                id="cities"
+                name="districts"
+                id="districts"
                 onChange={distValue}
                 value={"city"}
               >
-                <option selected value="">
-                  Choose District
-                </option>
+                <option value="null">Choose District</option>
                 <option value="harrow">Harrow</option>
                 <option value="heathrow">Heathrow</option>
                 <option value="stratford">Stratford</option>
@@ -50,7 +49,7 @@ function App() {
       <hr class="mx-auto" />
       <ButtonContainer getCategory={getCategory} />
       <hr class="mx-auto" />
-      <TableData distName={districtName} category={category}/>
+      <TableData distName={districtName} category={category} />
     </div>
   );
 }
