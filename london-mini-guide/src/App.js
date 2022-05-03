@@ -2,19 +2,24 @@ import "./App.css";
 import React, { useState } from "react";
 import Header from "./Header";
 import ButtonContainer from "./ButtonContainer";
-import TableData from "./TableData"
-import 'bulma/css/bulma.css';
+import TableData from "./TableData";
+import "bulma/css/bulma.css";
+import Guide from "./GuideText";
 
 function App() {
-  const [category, setCategory] = useState("pharmacies");
-  const [districtName, setDistrictName] = useState("harrow");
+  const [category, setCategory] = useState("");
+  const [districtChosen, setDistrictChosen] = useState(false)
+  const [districtName, setDistrictName] = useState("");
+  const [choiceText, setChoiceText] = useState(false);
 
   const getCategory = (value) => {
     setCategory(value);
   };
 
   const distValue = (e) => {
-    setCategory("")
+    setCategory("");
+    setDistrictChosen(true)
+    setChoiceText(true);
     setDistrictName(e.target.value);
   };
   return (
@@ -49,7 +54,8 @@ function App() {
       <hr class="mx-auto" />
       <ButtonContainer getCategory={getCategory} />
       <hr class="mx-auto" />
-      <TableData distName={districtName} category={category} />
+      {districtChosen ? <TableData distName={districtName} category={category} />: null}
+      {choiceText ? <Guide /> : null}
     </div>
   );
 }

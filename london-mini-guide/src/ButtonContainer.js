@@ -10,7 +10,7 @@ const ButtonContainer = (props) => {
   };
 
   return (
-    <div class="section pt-0">
+    <div class="section py-0">
       <div class="columns">
         <div class="column is-3 has-text-centered">
           <Button id="1" value="pharmacies" onclick={clickHandler} />

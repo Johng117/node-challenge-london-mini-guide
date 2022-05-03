@@ -1,37 +1,31 @@
 import { useState, useEffect } from "react";
-import Row from "./TableRow";
+import Rows from "./TableRows";
 
 const TableData = (props) => {
   const [districtData, setDistrictData] = useState({});
 
   async function showDistrictData() {
-      let data = await fetch(
-        `http://localhost:5000/district?place=${props.distName}`
-      );
-      let data2 = await data.json();
-      setDistrictData(data2);
+    let data = await fetch(
+      `http://localhost:5000/district?place=${props.distName}`
+    );
+    let data2 = await data.json();
+    setDistrictData(data2);
   }
   useEffect(() => {
     showDistrictData();
   }, [props.distName]);
 
-console.log(props.category)
+  console.log(props.category);
 
   return (
-    <div>
-      <table>
-        <tr>
-          <th className="number">#</th>
-          <th className="name">Name</th>
-          <th className="phone">Phone</th>
-          <th className="address">Address</th>
-          <th className="web">Website</th>
-        </tr>
-        {districtData ? districtData[props.category] ? districtData[props.category].map((entry) => {
-          return <Row entry={entry} />;
-        }) : null : null}
-      </table>
-      <div></div>
+    <div class="section pt-3 mx-6">
+      <div class="table-container">
+        {districtData ? (
+          districtData[props.category] ? (
+            <Rows disData={districtData} cat={props.category} />
+          ) : null
+        ) : null}
+      </div>
     </div>
   );
 };
