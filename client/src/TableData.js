@@ -6,7 +6,7 @@ const TableData = (props) => {
 
   async function showDistrictData() {
     let data = await fetch(
-      `http://localhost:5000/district?place=${props.distName}`
+      `http://localhost:3000/district?place=${props.distName}`
     );
     let data2 = await data.json();
     setDistrictData(data2);
@@ -14,8 +14,6 @@ const TableData = (props) => {
   useEffect(() => {
     showDistrictData();
   }, [props.distName]);
-
-  console.log(props.category);
 
   return (
     <div class="section pt-3 mx-6">

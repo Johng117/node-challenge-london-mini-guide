@@ -1,11 +1,15 @@
 const express = require("express");
 const cors = require("cors");
 const app = express();
-const harrowData = require("./data/Harrow.json");
-const heathrowData = require("./data/Heathrow.json");
-const stratfordData = require("./data/Stratford.json");
+const harrowData = require("../client/data/Harrow.json");
+const heathrowData = require("../client/data/Heathrow.json");
+const stratfordData = require("../client/data/Stratford.json");
 app.use(cors());
 app.use(express.json());
+
+app.get("/", (req, res) => {
+  res.json({ message: "Hello John!" });
+});
 
 app.get("/district", (req, res) => {
   const allDistricts = {
@@ -19,6 +23,6 @@ app.get("/district", (req, res) => {
   }
 });
 
-const listener = app.listen(process.env.PORT || 3000, function () {
+const listener = app.listen(3000, function () {
   console.log("Your app is listening on port " + listener.address().port);
 });
