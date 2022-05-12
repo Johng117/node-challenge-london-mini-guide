@@ -1,8 +1,6 @@
 import React, { useState } from "react";
 import Button from "./Button";
 
-
-
 const ButtonContainer = (props) => {
 
   const clickHandler = (e) => {
