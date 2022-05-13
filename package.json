@@ -17,5 +17,9 @@
   "bugs": {
     "url": "https://github.com/Johng117/node-challenge-london-mini-guide/issues"
   },
-  "homepage": "https://github.com/Johng117/node-challenge-london-mini-guide#readme"
+  "homepage": "https://github.com/Johng117/node-challenge-london-mini-guide#readme",
+  "engines": {
+    "node": "^12 || ^14 || ^16",
+    "npm": "^6 || ^7 || ^8"
+  }
 }
