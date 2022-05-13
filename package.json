@@ -4,6 +4,7 @@
   "description": "challenge-london-mini-guide root package.json",
   "main": "index.js",
   "dependencies": {
+    "cors": "^2.8.5",
     "express": "^4.18.1"
   },
   "devDependencies": {},
