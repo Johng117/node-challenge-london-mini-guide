@@ -6,7 +6,7 @@ const TableData = (props) => {
 
   async function showDistrictData() {
     let data = await fetch(
-      `http://localhost:3000/district?place=${props.distName}`
+      `server/district?place=${props.distName}`
     );
     let data2 = await data.json();
     setDistrictData(data2);
