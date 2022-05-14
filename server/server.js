@@ -1,6 +1,8 @@
 const express = require("express");
 const cors = require("cors");
 const app = express();
+const path = require("path");
+
 const harrowData = require("../client/data/Harrow.json");
 const heathrowData = require("../client/data/Heathrow.json");
 const stratfordData = require("../client/data/Stratford.json");
@@ -23,6 +25,8 @@ app.get("/district", (req, res) => {
   }
 });
 
-const listener = app.listen(process.env.PORT || 3000, function () {
+app.use(express.static(path.join(__dirname, "../client/build")));
+
+const listener = app.listen(process.env.PORT || 3001, function () {
   console.log("Your app is listening on port " + listener.address().port);
 });
