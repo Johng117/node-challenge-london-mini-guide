@@ -8,14 +8,16 @@ const heathrowData = require("./client/data/Heathrow.json");
 const stratfordData = require("./client/data/Stratford.json");
 app.use(cors());
 app.use(express.json());
-app.use(express.static("./client/public/index.html"));
+app.use("/", express.static(path.join(__dirname, "/build")));
+// app.use(express.static("/static"));
+// console.log(__dirname+"/client/john");
 
-// app.get("/", (req, res) => {
-//   res.json({ message: "Hello John!" });
-// });
-app.get("*", (_, res) => {
-  res.sendFile(path.join(__dirname, "index.html"));
+app.get("/", (req, res) => {
+  res.sendFile(path.join(__dirname, "/client/build", "john.js"));
 });
+// app.get("*", (_, res) => {
+//   return res.sendFile(path.join(__dirname, "/client/build/static"));
+// });
 
 app.get("/district", (req, res) => {
   const allDistricts = {
@@ -28,8 +30,6 @@ app.get("/district", (req, res) => {
     res.json(allDistricts[district]);
   }
 });
-
-app.use(express.static(path.join(__dirname, "./client/public")));
 
 const listener = app.listen(process.env.PORT || 3000, function () {
   console.log("Your app is listening on port " + listener.address().port);
