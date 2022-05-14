@@ -13,6 +13,9 @@ app.use(express.static("./client/public/index.html"));
 // app.get("/", (req, res) => {
 //   res.json({ message: "Hello John!" });
 // });
+app.get("*", (_, res) => {
+  res.sendFile(path.join(__dirname, "index.html"));
+});
 
 app.get("/district", (req, res) => {
   const allDistricts = {
@@ -25,6 +28,8 @@ app.get("/district", (req, res) => {
     res.json(allDistricts[district]);
   }
 });
+
+app.use(express.static(path.join(__dirname, "./client/public/")));
 
 const listener = app.listen(process.env.PORT || 3000, function () {
   console.log("Your app is listening on port " + listener.address().port);
