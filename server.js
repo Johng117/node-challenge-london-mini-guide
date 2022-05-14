@@ -3,9 +3,9 @@ const cors = require("cors");
 const app = express();
 const path = require("path");
 
-const harrowData = require("../client/data/Harrow.json");
-const heathrowData = require("../client/data/Heathrow.json");
-const stratfordData = require("../client/data/Stratford.json");
+const harrowData = require("./client/data/Harrow.json");
+const heathrowData = require("./client/data/Heathrow.json");
+const stratfordData = require("./client/data/Stratford.json");
 app.use(cors());
 app.use(express.json());
 
