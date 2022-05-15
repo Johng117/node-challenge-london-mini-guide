@@ -8,12 +8,13 @@ const heathrowData = require("./client/data/Heathrow.json");
 const stratfordData = require("./client/data/Stratford.json");
 app.use(cors());
 app.use(express.json());
+
 app.use("/", express.static(path.join(__dirname, "/build")));
 // app.use(express.static("/static"));
 // console.log(__dirname+"/client/john");
 
-app.get("/", (req, res) => {
-  res.sendFile(path.join(__dirname, "/client/build", "john.js"));
+app.get(("/*"), (req, res) => {
+  res.sendFile(path.join(__dirname, "client/build", "index.html"));
 });
 // app.get("*", (_, res) => {
 //   return res.sendFile(path.join(__dirname, "/client/build/static"));
