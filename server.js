@@ -11,10 +11,9 @@ app.use(express.json());
 
 app.use(express.static(path.join(__dirname, "build")));
 // app.use(express.static("/static"));
-// console.log(__dirname+"/client/john");
 
 app.get("/*", (req, res) => {
-  res.sendFile(path.join(__dirname, "/build", "john.js"));
+  res.sendFile(path.join(__dirname, "build", "john.js"));
 });
 // app.get("*", (_, res) => {
 //   return res.sendFile(path.join(__dirname, "/client/build/static"));
