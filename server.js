@@ -9,11 +9,10 @@ const stratfordData = require("./client/data/Stratford.json");
 app.use(cors());
 app.use(express.json());
 
-app.use("/", express.static(path.join(__dirname, "build")));
-
+app.use(express.static(path.join(__dirname, "build")));
 
 app.get("/", (req, res) => {
-  res.sendFile(path.join(__dirname, "build", "john.js"));
+  res.sendFile(path.join(__dirname, "build", "index.html"));
 });
 
 app.get("/district", (req, res) => {
@@ -24,7 +23,7 @@ app.get("/district", (req, res) => {
   };
   const district = req.query.place;
   if (district) {
-    console.log(allDistricts[district])
+    console.log(allDistricts[district]);
     res.json(allDistricts[district]);
   }
 });
