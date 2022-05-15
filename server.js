@@ -10,14 +10,11 @@ app.use(cors());
 app.use(express.json());
 
 app.use(express.static(path.join(__dirname, "build")));
-// app.use(express.static("/static"));
+
 
 app.get("/*", (req, res) => {
   res.sendFile(path.join(__dirname, "build", "john.js"));
 });
-// app.get("*", (_, res) => {
-//   return res.sendFile(path.join(__dirname, "/client/build/static"));
-// });
 
 app.get("/district", (req, res) => {
   const allDistricts = {
@@ -27,6 +24,7 @@ app.get("/district", (req, res) => {
   };
   const district = req.query.place;
   if (district) {
+    console.log(allDistricts[district])
     res.json(allDistricts[district]);
   }
 });
