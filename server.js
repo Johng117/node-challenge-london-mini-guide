@@ -2,17 +2,15 @@ const express = require("express");
 const cors = require("cors");
 const app = express();
 const path = require("path");
-
 const harrowData = require("./client/data/Harrow.json");
 const heathrowData = require("./client/data/Heathrow.json");
 const stratfordData = require("./client/data/Stratford.json");
 app.use(cors());
 app.use(express.json());
-
 app.use(express.static(path.join(__dirname, "build")));
 
-app.get("/*", (req, res) => {
-  res.sendFile(path.join(__dirname, "client/build", "index.html"));
+app.get("*", (req, res) => {
+  res.sendFile(path.join(__dirname, "build", "index.html"));
 });
 
 app.get("/district", (req, res) => {
