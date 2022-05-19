@@ -7,11 +7,6 @@ const heathrowData = require("./client/data/Heathrow.json");
 const stratfordData = require("./client/data/Stratford.json");
 app.use(cors());
 app.use(express.json());
-app.use(express.static(path.join(__dirname, "build")));
-
-app.get("*", (req, res) => {
-  res.sendFile(path.join(__dirname, "build", "index.html"));
-});
 
 app.get("/district", (req, res) => {
   const allDistricts = {
@@ -25,6 +20,14 @@ app.get("/district", (req, res) => {
     res.json(allDistricts[district]);
   }
 });
+
+if (process.env.NODE_ENV === "production") {
+  app.use(express.static(path.join(__dirname, "client/build")));
+
+  app.get("*", (req, res) => {
+    res.sendFile(path.join(__dirname, "client/build", "index.html"));
+  });
+}
 
 const listener = app.listen(process.env.PORT || 3000, function () {
   console.log("Your app is listening on port " + listener.address().port);
