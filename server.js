@@ -8,6 +8,7 @@ const stratfordData = require("./client/data/Stratford.json");
 app.use(cors());
 app.use(express.json());
 
+// route to return data for each query(district name), a string is sent and a json
 app.get("/district", (req, res) => {
   const allDistricts = {
     "harrow": harrowData,
@@ -16,11 +17,11 @@ app.get("/district", (req, res) => {
   };
   const district = req.query.place;
   if (district) {
-    console.log(allDistricts[district]);
     res.json(allDistricts[district]);
   }
 });
 
+// 
 if (process.env.NODE_ENV === "production") {
   app.use(express.static(path.join(__dirname, "client/build")));
 
