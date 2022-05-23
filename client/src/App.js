@@ -5,23 +5,23 @@ import ButtonContainer from "./ButtonContainer";
 import TableData from "./TableData";
 import "bulma/css/bulma.css";
 import Guide from "./GuideText";
+import Start from "./StartText";
 
 function App() {
   const [category, setCategory] = useState("");
-  const [districtChosen, setDistrictChosen] = useState(false)
+  const [districtChosen, setDistrictChosen] = useState(false);
   const [districtName, setDistrictName] = useState("");
-  const [choiceText, setChoiceText] = useState(false);
-
+  // function to get and set the category of business/service 
   const getCategory = (value) => {
     setCategory(value);
   };
-
+  // function to get the district name, reset the category value and confirm that a district has been chosen
   const distValue = (e) => {
     setCategory("");
-    setDistrictChosen(true)
-    setChoiceText(true);
+    setDistrictChosen(true);
     setDistrictName(e.target.value);
   };
+
   return (
     <div>
       <div class="section pt-4 pb-0 has-text-centered">
@@ -32,13 +32,8 @@ function App() {
       <div class="section py-0 has-text-centered">
         <div class="field has-add-ons">
           <div class="control has-icons-left">
-            <div class="select is-primary">
-              <select
-                name="districts"
-                id="districts"
-                onChange={distValue}
-                value={"city"}
-              >
+            <div class="select is-active is-primary">
+              <select id="districts" onChange={distValue}>
                 <option value="null">Choose District</option>
                 <option value="harrow">Harrow</option>
                 <option value="heathrow">Heathrow</option>
@@ -54,8 +49,10 @@ function App() {
       <hr class="mx-auto" />
       <ButtonContainer getCategory={getCategory} />
       <hr class="mx-auto" />
-      {districtChosen ? <TableData distName={districtName} category={category} />: null}
-      {choiceText ? <Guide /> : null}
+      {districtName === "" || districtName === "null" ? <Start /> : category==="" ? <Guide /> : null}
+      {districtChosen && districtName !== "null" ? (
+        <TableData distName={districtName} category={category} />
+      ) : null}
     </div>
   );
 }

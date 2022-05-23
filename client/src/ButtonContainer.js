@@ -1,10 +1,11 @@
-import React, { useState } from "react";
+import React from "react";
 import Button from "./Button";
 
 const ButtonContainer = (props) => {
-
+  // function that gets the value of the relevant button to use as an argument for the getCategory function
+  // sent down as props.
   const clickHandler = (e) => {
-    props.getCategory(e.target.value)
+    props.getCategory(e.target.value);
   };
 
   return (
