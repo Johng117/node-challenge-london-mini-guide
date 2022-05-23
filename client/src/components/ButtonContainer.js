@@ -1,5 +1,5 @@
 import React from "react";
-import Button from "./Button";
+import Button from "./components/Button";
 
 const ButtonContainer = (props) => {
   // function that gets the value of the relevant button to use as an argument for the getCategory function
