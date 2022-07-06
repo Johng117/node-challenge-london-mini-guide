@@ -1,8 +1,8 @@
-import "./App.css";
+import "../../src/App.css";
 import React, { useState } from "react";
 import Header from "./Header";
-import ButtonContainer from "../ButtonContainer";
-import TableData from "../TableData";
+import ButtonContainer from "./ButtonContainer";
+import TableData from "./TableData";
 import "bulma/css/bulma.css";
 import Guide from "./GuideText";
 import Start from "./StartText";
