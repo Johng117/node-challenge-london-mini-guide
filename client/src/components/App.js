@@ -11,7 +11,7 @@ function App() {
   const [category, setCategory] = useState("");
   const [districtChosen, setDistrictChosen] = useState(false);
   const [districtName, setDistrictName] = useState("");
-  // function to get and set the category of business/service 
+  // function to get and set the category of business/service
   const getCategory = (value) => {
     setCategory(value);
   };
@@ -48,8 +48,13 @@ function App() {
       </div>
       <hr class="mx-auto" />
       <ButtonContainer getCategory={getCategory} />
+      <h1>JOHN</h1>
       <hr class="mx-auto" />
-      {districtName === "" || districtName === "null" ? <Start /> : category==="" ? <Guide /> : null}
+      {districtName === "" || districtName === "null" ? (
+        <Start />
+      ) : category === "" ? (
+        <Guide />
+      ) : null}
       {districtChosen && districtName !== "null" ? (
         <TableData distName={districtName} category={category} />
       ) : null}
