@@ -48,7 +48,6 @@ function App() {
       </div>
       <hr class="mx-auto" />
       <ButtonContainer getCategory={getCategory} />
-      <h1>JOHN</h1>
       <hr class="mx-auto" />
       {districtName === "" || districtName === "null" ? (
         <Start />
